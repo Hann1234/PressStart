@@ -11,12 +11,8 @@ CREATE TABLE "user" (
     "profile_image" VARCHAR (1000),
     "profile_description" TEXT,
     "user_play_style" VARCHAR (80),
-    "user_fav_game_1" VARCHAR (80),
-    "user_fav_game_2" VARCHAR (80),
-    "user_fav_game_3" VARCHAR (80),
-    "game_1_rank" VARCHAR (80),
-    "game_2_rank" VARCHAR (80),
-    "game_3_rank" VARCHAR (80),
+    "active_game" VARCHAR (80),
+    "active_game_rank" VARCHAR (80),
     "discord_link" VARCHAR (80),
     "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
