@@ -14,8 +14,8 @@ function HomePage() {
       <h2>Hello there, {user.username}! Press START to find your squad!</h2>
       <p>Your ID is: {user.id}</p>
       <button className="btn" onClick={ () => history.push('/gameselect')}>START</button>
-      <button className="btn" onClick={ () => history.push('/timeselect')}>PROFILE</button>
-      <button className="btn" onClick={ () => history.push('/squadselect')}>SQUAD</button>
+      <button className="btn" onClick={ () => history.push('/profile')}>PROFILE</button>
+      <button className="btn" onClick={ () => history.push('/squadlist')}>SQUAD</button>
       <LogOutButton className="btn" />
     </div>
   );
