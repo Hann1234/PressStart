@@ -14,11 +14,21 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+
+//Project specific components:
+import HomePage from '../HomePage/HomePage';
+import GameSelect from '../GameSelect/GameSelect';
+import TimeSelect from '../TimeSelect/TimeSelect';
+import SquadSelect from '../SquadSelect/SquadSelect';
+import Match from '../Match/Match';
+import Profile from '../Profile/Profile';
+import SquadList from '../SquadList/SquadList';
+import SquadRequests from '../SquadResquests/SquadRequests';
+
 
 import './App.css';
 
@@ -51,11 +61,11 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows HomePage else shows LoginPage
             exact
-            path="/user"
+            path="/user" //homepage
           >
-            <UserPage />
+            <HomePage />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -64,6 +74,62 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows GameSelect else shows LoginPage
+            exact
+            path="/gameselect"
+          >
+            <GameSelect />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows TimeSelect else shows LoginPage
+            exact
+            path="/timeselect"
+          >
+            <TimeSelect />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows SquadSelect else shows LoginPage
+            exact
+            path="/squadselect"
+          >
+            <SquadSelect />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Match else shows LoginPage
+            exact
+            path="/match"
+          >
+            <Match />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Profile else shows LoginPage
+            exact
+            path="/profile"
+          >
+            <Profile />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows SquadList else shows LoginPage
+            exact
+            path="/squadlist"
+          >
+            <SquadList />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows SquadRequests else shows LoginPage
+            exact
+            path="/squadrequests"
+          >
+            <SquadRequests />
           </ProtectedRoute>
 
           {/* When a value is supplied for the authRedirect prop the user will
