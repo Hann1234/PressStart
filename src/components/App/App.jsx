@@ -63,7 +63,7 @@ function App() {
           <ProtectedRoute
             // logged in shows HomePage else shows LoginPage
             exact
-            path="/user" //homepage
+            path="/user" //homepage change later?
           >
             <HomePage />
           </ProtectedRoute>
