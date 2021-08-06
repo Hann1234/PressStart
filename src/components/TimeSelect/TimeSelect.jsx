@@ -1,40 +1,54 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 //material.ui:
 
-import TextField from '@material-ui/core/TextField';
-import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
-import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
-import DateTimePicker from '@material-ui/lab/DateTimePicker';
+import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import DateFnsUtils from '@date-io/date-fns';
 
 function TimeSelect() {
-    // this component is the game selection screen for the user.
+    // this component is the time selection screen for the user.
+
+    const [selectedStartDate, handleStartDateChange] = useState(new Date());
+    const [selectedEndDate, handleEndDateChange] = useState(new Date());
+
+
     const history = useHistory();
+
     // const params = useParams();
 
     // const handleClick = () => {
     //     history.push(`/squadselect`);
     // }
     
-    const [value, setValue] = useState(new Date());
 
     return (
     <div className="container">
         <h1>SELECT YOUR TIME</h1>
 
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <Fragment>
+                <p>Required:</p>
             <DateTimePicker
-                renderInput={(props) => <TextField {...props} />}
-                label="DateTimePicker"
-                value={value}
-                onChange={(newValue) => {
-                setValue(newValue);
-                }}
+                value={selectedStartDate}
+                disablePast
+                onChange={handleStartDateChange}
+                label="Start Date and Time"
+                showTodayButton
             />
-        </LocalizationProvider>
-
+            <br></br>
+            <p>Optional:</p>
+            <DateTimePicker
+                value={selectedEndDate}
+                disablePast
+                onChange={handleEndDateChange}
+                label="End Date and Time"
+                showTodayButton
+            />
+            </Fragment>
+        </MuiPickersUtilsProvider>
+        <br></br>
         <button className="btn" onClick ={() => history.push(`/squadselect`)}>START</button>
         <button className="btn" onClick ={() => history.push(`/gameselect`)}>RETURN</button>
     </div>
