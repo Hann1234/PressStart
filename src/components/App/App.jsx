@@ -21,7 +21,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 //Project specific components:
 import HomePage from '../HomePage/HomePage';
-// import GameSelect from '../GameSelect/GameSelect';
+import GameSelect from '../GameSelect/GameSelect';
 // import TimeSelect from '../TimeSelect/TimeSelect';
 // import SquadSelect from '../SquadSelect/SquadSelect';
 // import Match from '../Match/Match';
@@ -76,13 +76,13 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             // logged in shows GameSelect else shows LoginPage
             exact
             path="/gameselect"
           >
             <GameSelect />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
           {/* <ProtectedRoute
             // logged in shows TimeSelect else shows LoginPage

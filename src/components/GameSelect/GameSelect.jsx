@@ -24,7 +24,7 @@ function GameSelect() {
             {games.map(game => {
                 return (
                     <div key={game.id} >
-                        <h3>{game.title}</h3>
+                        <h3>{game.game_title}</h3>
                         <img onClick={() => handleClick(game.id)} src={game.game_cover} alt={game.game_title}/>
                     </div>
                 );
