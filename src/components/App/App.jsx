@@ -22,7 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 //Project specific components:
 import HomePage from '../HomePage/HomePage';
 import GameSelect from '../GameSelect/GameSelect';
-// import TimeSelect from '../TimeSelect/TimeSelect';
+import TimeSelect from '../TimeSelect/TimeSelect';
 // import SquadSelect from '../SquadSelect/SquadSelect';
 // import Match from '../Match/Match';
 // import Profile from '../Profile/Profile';
@@ -84,13 +84,13 @@ function App() {
             <GameSelect />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             // logged in shows TimeSelect else shows LoginPage
             exact
             path="/timeselect"
           >
             <TimeSelect />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
           {/* <ProtectedRoute
             // logged in shows SquadSelect else shows LoginPage

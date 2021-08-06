@@ -13,8 +13,8 @@ function GameSelect() {
         dispatch({ type: 'FETCH_GAMES' });
     }, []);
 
-    const handleClick = () => {
-        history.push(`/timeselect/${gamesID}`);
+    const handleClick = (gameID) => {
+        history.push(`/timeselect`); // /${gameID}
     }
     
     return (
@@ -34,7 +34,6 @@ function GameSelect() {
     );
 }
 
-// this allows us to use <App /> in index.js
 export default GameSelect;
 
 // onClick={() => handleClick()}
