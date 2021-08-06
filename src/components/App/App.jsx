@@ -25,7 +25,7 @@ import GameSelect from '../GameSelect/GameSelect';
 import TimeSelect from '../TimeSelect/TimeSelect';
 // import SquadSelect from '../SquadSelect/SquadSelect';
 // import Match from '../Match/Match';
-// import Profile from '../Profile/Profile';
+import Profile from '../Profile/Profile';
 // import SquadList from '../SquadList/SquadList';
 // import SquadRequests from '../SquadResquests/SquadRequests';
 
@@ -108,13 +108,13 @@ function App() {
             <Match />
           </ProtectedRoute> */}
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             // logged in shows Profile else shows LoginPage
             exact
             path="/profile"
           >
             <Profile />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
           {/* <ProtectedRoute
             // logged in shows SquadList else shows LoginPage
