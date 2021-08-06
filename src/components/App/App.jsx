@@ -26,6 +26,7 @@ import TimeSelect from '../TimeSelect/TimeSelect';
 // import SquadSelect from '../SquadSelect/SquadSelect';
 // import Match from '../Match/Match';
 import Profile from '../Profile/Profile';
+import ProfileEdit from '../ProfileEdit/ProfileEdit';
 // import SquadList from '../SquadList/SquadList';
 // import SquadRequests from '../SquadResquests/SquadRequests';
 
@@ -114,6 +115,14 @@ function App() {
             path="/profile"
           >
             <Profile />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows Profile Edit else shows LoginPage
+            exact
+            path="/profileedit"
+          >
+            <ProfileEdit />
           </ProtectedRoute>
 
           {/* <ProtectedRoute

@@ -20,7 +20,7 @@ function Profile() {
         <p>RANK: {user.active_game_rank}</p>
         <p>DISCORD LINK: {user.discord_link}</p>
         <button className="btn" onClick={ () => history.push('/')}>RETURN</button>
-        <button className="btn" onClick={ () => history.push('/editprofile')}>EDIT PROFILE</button>
+        <button className="btn" onClick={ () => history.push('/profileedit')}>EDIT PROFILE</button>
     </div>
   );
 }
