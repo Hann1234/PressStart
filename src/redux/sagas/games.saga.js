@@ -4,7 +4,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 // worker Saga: will be fired on "FETCH_GAMES" actions
 function* fetchGames() {
   try {
-    const gamesResponse = yield axios.get('/games');
+    const gamesResponse = yield axios.get('/api/games');
     console.log('get all:', gamesResponse.data);
     yield put({ type: 'SET_GAMES', payload: gamesResponse.data });
   } catch (error) {
