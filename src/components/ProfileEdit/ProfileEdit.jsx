@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 
 function ProfileEdit() {
   const [username, setUsername] = useState('');
@@ -10,6 +12,7 @@ function ProfileEdit() {
 
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const editProfile = (event) => {
     event.preventDefault();

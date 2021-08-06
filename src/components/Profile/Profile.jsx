@@ -19,8 +19,8 @@ function Profile() {
         <p>ACTIVE GAME: {user.active_game}</p>
         <p>RANK: {user.active_game_rank}</p>
         <p>DISCORD LINK: {user.discord_link}</p>
-        <button className="btn" onClick={ () => history.push('/')}>RETURN</button>
         <button className="btn" onClick={ () => history.push('/profileedit')}>EDIT PROFILE</button>
+        <button className="btn" onClick={ () => history.push('/')}>RETURN</button>
     </div>
   );
 }
