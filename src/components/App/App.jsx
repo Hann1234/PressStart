@@ -21,13 +21,13 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 //Project specific components:
 import HomePage from '../HomePage/HomePage';
-import GameSelect from '../GameSelect/GameSelect';
-import TimeSelect from '../TimeSelect/TimeSelect';
-import SquadSelect from '../SquadSelect/SquadSelect';
-import Match from '../Match/Match';
-import Profile from '../Profile/Profile';
-import SquadList from '../SquadList/SquadList';
-import SquadRequests from '../SquadResquests/SquadRequests';
+// import GameSelect from '../GameSelect/GameSelect';
+// import TimeSelect from '../TimeSelect/TimeSelect';
+// import SquadSelect from '../SquadSelect/SquadSelect';
+// import Match from '../Match/Match';
+// import Profile from '../Profile/Profile';
+// import SquadList from '../SquadList/SquadList';
+// import SquadRequests from '../SquadResquests/SquadRequests';
 
 
 import './App.css';
@@ -76,61 +76,61 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows GameSelect else shows LoginPage
             exact
             path="/gameselect"
           >
             <GameSelect />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows TimeSelect else shows LoginPage
             exact
             path="/timeselect"
           >
             <TimeSelect />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows SquadSelect else shows LoginPage
             exact
             path="/squadselect"
           >
             <SquadSelect />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows Match else shows LoginPage
             exact
             path="/match"
           >
             <Match />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows Profile else shows LoginPage
             exact
             path="/profile"
           >
             <Profile />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows SquadList else shows LoginPage
             exact
             path="/squadlist"
           >
             <SquadList />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows SquadRequests else shows LoginPage
             exact
             path="/squadrequests"
           >
             <SquadRequests />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
