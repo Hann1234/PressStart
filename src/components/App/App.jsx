@@ -88,7 +88,7 @@ function App() {
           <ProtectedRoute
             // logged in shows TimeSelect else shows LoginPage
             exact
-            path="/timeselect"
+            path="/timeselect/:id"
           >
             <TimeSelect />
           </ProtectedRoute>

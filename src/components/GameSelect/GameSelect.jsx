@@ -14,7 +14,7 @@ function GameSelect() {
     }, []);
 
     const handleClick = (gameID) => {
-        history.push(`/timeselect`); // /${gameID}
+        history.push(`/timeselect/${gameID}`); // useParams to pass game id to time select page
     }
     
     return (
@@ -37,3 +37,5 @@ function GameSelect() {
 export default GameSelect;
 
 // onClick={() => handleClick()}
+
+// dispatch the game idea into a reducer or should I use useParams?

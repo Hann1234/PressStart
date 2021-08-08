@@ -29,7 +29,6 @@ CREATE TABLE "user_game" (
 	"user_id" INT REFERENCES "user" ON DELETE CASCADE NOT NULL,
 	"game_id" INT REFERENCES "games" ON DELETE CASCADE NOT NULL,
 	"time_start" TIMESTAMP NOT NULL,
-	"time_end" TIMESTAMP,
 	"created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 	);
 	
