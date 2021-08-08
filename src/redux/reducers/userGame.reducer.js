@@ -1,16 +1,16 @@
 //This reducer is used to store the games returned from the server
 
-const gamesReducer = (state = [], action) => {
+const userGameReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_GAMES':
+        case 'SET_USER_GAME':
             return action.payload;
         default:
             return state;
     }
 };
  
-// games will be on the redux state at:
-// store.games
+// user game will be on the redux state at:
+// store.userGame
 
-export default gamesReducer;
+export default userGameReducer;
   
