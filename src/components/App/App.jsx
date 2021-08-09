@@ -120,7 +120,7 @@ function App() {
           <ProtectedRoute
             // logged in shows Profile Edit else shows LoginPage
             exact
-            path="/profileedit"
+            path="/profileedit/:id"
           >
             <ProfileEdit />
           </ProtectedRoute>

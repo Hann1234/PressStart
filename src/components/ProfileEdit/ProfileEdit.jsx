@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 
 function ProfileEdit() {
-  const [username, setUsername] = useState('');
-  const [image, setImage] = useState('');
-  const [description, setDescription] = useState('');
+//   const [username, setUsername] = useState('');
+//   const [image, setImage] = useState('');
+//   const [description, setDescription] = useState('');
   const [style, setStyle] = useState('');
-  const [discordLink, setDiscordLink] = useState('');
+//   const [discordLink, setDiscordLink] = useState('');
 
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const history = useHistory();
+  const params = useParams();
 
-  const editProfile = (event) => {
-    event.preventDefault();
+  const editProfile = () => {
+    
+    // event.preventDefault();
 
     dispatch({
       type: 'EDIT_PROFILE',
       payload: {
-        username: username,
-        profile_image: image,
-        profile_description: description,
-        user_play_style: style,
-        discord_link: discordLink
+        updates,
+        user.id: user.id
       },
     });
   }; // end editProfile
@@ -39,8 +38,8 @@ function ProfileEdit() {
             type="text"
             name="username"
             placeholder={user.username}
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            value={user.username}
+            onChange={(event) => editProfile({username: event.target.value})}
           />
         </label>
       </div>
@@ -51,8 +50,8 @@ function ProfileEdit() {
             type="text"
             name="profilePic" 
             placeholder="Enter New Image url" 
-            value={image} 
-            onChange={event => setImage(event.target.value)}
+            value={user.profile_image} 
+            onChange={event => editProfile({profile_image: event.target.value})}
           />
         </label>
       </div>
@@ -63,8 +62,8 @@ function ProfileEdit() {
             type="text"
             name="description"
             placeholder={user.profile_description} 
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
+            value={user.profile_description}
+            onChange={(event) => editProfile({profile_description: event.target.value})}
           />
         </label>
       </div>
@@ -94,7 +93,7 @@ function ProfileEdit() {
             type="text"
             name="discord"
             placeholder={user.discord_link} 
-            value={discordLink}
+            value={user.discord_link}
             onChange={(event) => setDiscordLink(event.target.value)}
           />
         </label>
