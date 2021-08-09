@@ -17,9 +17,9 @@ function ProfileEdit() {
   const history = useHistory();
   const params = useParams();
 
-  const editProfile = () => {
+  const editProfile = (event) => {
     
-    // event.preventDefault();
+    event.preventDefault();
 
     dispatch({
       type: 'EDIT_PROFILE',
@@ -28,15 +28,15 @@ function ProfileEdit() {
           profile_image: image,
           profile_description: description,
           user_play_style: style,
-          discord_link: discordLink
+          discord_link: discordLink,
+          history: history
       },
     });
-
-    history.push(`/profile`);
 
   }; // end editProfile
 
   return (
+      <div>
     <form className="formPanel" onSubmit={editProfile}>
       <h2>Edit Profile</h2>
       <div>
@@ -104,9 +104,10 @@ function ProfileEdit() {
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="SAVE CHANGES" />
-        <button className="btn" onClick ={() => history.push(`/profile`)}>RETURN</button>
       </div>
     </form>
+    <button className="btn" onClick ={() => history.push(`/profile`)}>RETURN</button>
+</div>
   );
 }
 
