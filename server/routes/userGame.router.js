@@ -10,21 +10,26 @@ const {
 //  * GET user game
 //  */
 
-// router.get('/', rejectUnauthenticated, (req, res) => {
-//     const queryText = `
-//     SELECT * FROM user_game
-//     WHERE user_id=$1
-//     ;`;
-//     pool.query(queryText, [req.body.user_id])
-//     .then(response => {
-//       console.log('inside router get:', response);
-//       res.send(response.rows);
-//     })
-//     .catch(error => {
-//       console.log('error retrieving user game:', error);
-//       res.sendStatus(500);
-//     })
-//   });
+router.get('/', rejectUnauthenticated, (req, res) => {
+    console.log(req.body);
+    const queryText = `
+    SELECT "user".username, "user".profile_image, "user".profile_description, "user".user_play_style, user_game.time_start, games.game_title
+    FROM "user"
+    JOIN user_game ON "user".id = user_game.user_id
+    JOIN games ON user_game.game_id = games.id
+    WHERE "user".id != $1 AND games.id = $2
+    ORDER BY user_game.time_start ASC
+    ;`;
+    pool.query(queryText, [req.body.user_id, req.body.game_id])
+    .then(response => {
+      console.log('inside router get:', response);
+      res.send(response.rows);
+    })
+    .catch(error => {
+      console.log('error retrieving user game:', error);
+      res.sendStatus(500);
+    })
+  });
 
 
 /**

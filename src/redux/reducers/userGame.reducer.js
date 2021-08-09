@@ -1,4 +1,4 @@
-//This reducer is used to store the games returned from the server
+//This reducer is used to store the user data, times selected, and game name of the game selected by the current user returned from the server
 
 const userGameReducer = (state = [], action) => {
     switch (action.type) {

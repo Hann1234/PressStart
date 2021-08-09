@@ -13,18 +13,20 @@ function* addUserGame(action) {
   }
 }
 
-// function* fetchUserGame(action) {
-//   try {
-//       const userGame = yield axios.get('/api/usergame', action.payload);
-//       yield put({ type: 'SET_USER_GAME', payload: userGame.data})
-//   } catch (error) {
-//       console.log('unable to retrieve user game:', error);
-//   }
-// }
+function* fetchUsers(action) {
+  try {
+      const userGame = yield axios.get('/api/usergame', action.payload);
+      yield put({ type: 'SET_USER_GAME', payload: userGame.data});
+      console.log(action.payload);
+      console.log('inside fetchUsers Saga', action);
+  } catch (error) {
+      console.log('unable to retrieve user game from fetchUser:', error);
+  }
+}
 
 function* userGameSaga() {
   yield takeLatest('ADD_USER_GAME', addUserGame);
-  // yield takeLatest('FETCH_USER_GAME', fetchUserGame);
+  yield takeLatest('FETCH_USERS', fetchUsers);
 }
 
 export default userGameSaga;
