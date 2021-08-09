@@ -16,52 +16,44 @@ function TimeSelect() {
     const params = useParams();
     const dispatch = useDispatch();
 
-    const handleClick = (event) => {
+    const handleSubmit = (event) => {
 
         event.preventDefault();
 
-        // alert user to fill in missing time field
 
-        if (!selectedStartDate) {
-            alert('Please select a time.')
-            }
-            
-            else {
-            // Tell redux that we want to add new info
-            dispatch({
-                type: 'ADD_USER_GAME',
-                // Pass in the information, that we're tracking in state
-                payload: {
-                    user_id: user.id,
-                    game_id: params.id,
-                    time_start: selectedStartDate}
-            });
-
-        }
-
-        history.push(`/squadselect`);
+        dispatch({
+            type: 'ADD_USER_GAME',
+            // Pass in the user id, game id, and selected time
+            payload: {
+                user_id: user.id,
+                game_id: params.id,
+                time_start: selectedStartDate}
+        });
+        
+        history.push(`/squadselect/${params.id}`);
     }
     
 
     return (
     <div className="container">
         <h1>SELECT YOUR TIME</h1>
-
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <Fragment>
-                <p>Required:</p>
-            <DateTimePicker
-                value={selectedStartDate}
-                disablePast
-                onChange={handleStartDateChange}
-                label="Start Date and Time"
-                showTodayButton
-            />
-            </Fragment>
-        </MuiPickersUtilsProvider>
-        <br></br>
-        <button className="btn" onClick ={() => handleClick()}>START</button>
-        <button className="btn" onClick ={() => history.push(`/gameselect`)}>RETURN</button>
+            <form onSubmit={handleSubmit}>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <Fragment>
+                        <p>Required:</p>
+                    <DateTimePicker
+                        value={selectedStartDate}
+                        disablePast
+                        onChange={handleStartDateChange}
+                        label="Start Date and Time"
+                        showTodayButton
+                    />
+                    </Fragment>
+                </MuiPickersUtilsProvider>
+                <br></br>
+                <button className="btn" type="submit">START</button>
+                <button className="btn" onClick ={() => history.push(`/gameselect`)}>RETURN</button>
+                </form>
     </div>
     );
 }

@@ -23,7 +23,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import HomePage from '../HomePage/HomePage';
 import GameSelect from '../GameSelect/GameSelect';
 import TimeSelect from '../TimeSelect/TimeSelect';
-// import SquadSelect from '../SquadSelect/SquadSelect';
+import SquadSelect from '../SquadSelect/SquadSelect';
 // import Match from '../Match/Match';
 import Profile from '../Profile/Profile';
 import ProfileEdit from '../ProfileEdit/ProfileEdit';
@@ -93,13 +93,13 @@ function App() {
             <TimeSelect />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             // logged in shows SquadSelect else shows LoginPage
             exact
-            path="/squadselect"
+            path="/squadselect/:id"
           >
             <SquadSelect />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
           {/* <ProtectedRoute
             // logged in shows Match else shows LoginPage
