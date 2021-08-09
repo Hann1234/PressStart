@@ -1,5 +1,5 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, { useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
@@ -7,6 +7,12 @@ function Profile() {
   // this component displays user profile information
   const user = useSelector((store) => store.user);
   const history = useHistory();
+  const dispatch = useDispatch();
+  
+//   useEffect(() => {
+//     dispatch({ type: 'FETCH_USER' });
+// }, []);
+
 
   return (
     <div className="container">

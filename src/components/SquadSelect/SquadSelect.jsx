@@ -17,11 +17,10 @@ function SquadSelect() {
         dispatch({ 
             type: 'FETCH_USERS',
             payload: {
-                user_id: user.id,
                 game_id: params.id
             } 
         });
-    }, [user.id, params.id]); //need to include [params.id] here?
+    }, [params.id]); //need to include [params.id] here?
 
     // const handleClick = (gameID) => {
     //     history.push(`/timeselect/${gameID}`); // useParams to pass game id to time select page

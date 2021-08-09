@@ -25,8 +25,10 @@ router.post('/register', (req, res, next) => {
   const user_play_style = req.body.user_play_style;
   const discord_link = req.body.discord_link;
   
-  const queryText = `INSERT INTO "user" (username, password, profile_image, profile_description, user_play_style, discord_link)
-    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
+  const queryText = `
+    INSERT INTO "user" (username, password, profile_image, profile_description, user_play_style, discord_link)
+    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id
+    ;`;
   pool
     .query(queryText, [username, password, profile_image, profile_description, user_play_style, discord_link])
     .then(() => res.sendStatus(201))
@@ -34,6 +36,23 @@ router.post('/register', (req, res, next) => {
       console.log('User registration failed: ', err);
       res.sendStatus(500);
     });
+});
+
+router.put('/edit', rejectUnauthenticated, (req, res) => {
+  const queryText = `
+  UPDATE "user"
+  SET username=$1, profile_image=$2, profile_description=$3, user_play_style=$4, discord_link=$5
+  WHERE id=$6
+  ;`;
+  pool.query(queryText, [req.body.username, req.body.profile_image, req.body.profile_description, req.body.user_play_style, req.body.discord_link, req.user.id])
+  .then(response => {
+    console.log('inside router PUT(update):', response);
+    res.send(response.rows);
+  })
+  .catch(error => {
+    console.log('error updating user profile:', error);
+    res.sendStatus(500);
+  })
 });
 
 // Handles login form authenticate/login POST

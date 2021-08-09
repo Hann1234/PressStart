@@ -10,7 +10,7 @@ const {
 //  * GET user game
 //  */
 
-router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
     const queryText = `
     SELECT "user".username, "user".profile_image, "user".profile_description, "user".user_play_style, user_game.time_start, games.game_title
@@ -20,7 +20,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     WHERE "user".id != $1 AND games.id = $2
     ORDER BY user_game.time_start ASC
     ;`;
-    pool.query(queryText, [req.body.user_id, req.body.game_id])
+    pool.query(queryText, [req.user.id, req.params.id])
     .then(response => {
       console.log('inside router get:', response);
       res.send(response.rows);

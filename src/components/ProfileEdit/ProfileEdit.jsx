@@ -4,13 +4,15 @@ import { useHistory, useParams } from 'react-router-dom';
 
 
 function ProfileEdit() {
-//   const [username, setUsername] = useState('');
-//   const [image, setImage] = useState('');
-//   const [description, setDescription] = useState('');
-  const [style, setStyle] = useState('');
-//   const [discordLink, setDiscordLink] = useState('');
 
-  const user = useSelector((store) => store.user);
+    const user = useSelector((store) => store.user);
+
+  const [username, setUsername] = useState(user.username);
+  const [image, setImage] = useState(user.profile_image);
+  const [description, setDescription] = useState(user.profile_description);
+  const [style, setStyle] = useState(user.user_play_style);
+  const [discordLink, setDiscordLink] = useState(user.discord_link);
+
   const dispatch = useDispatch();
   const history = useHistory();
   const params = useParams();
@@ -22,10 +24,16 @@ function ProfileEdit() {
     dispatch({
       type: 'EDIT_PROFILE',
       payload: {
-        updates,
-        user.id: user.id
+          username: username,
+          profile_image: image,
+          profile_description: description,
+          user_play_style: style,
+          discord_link: discordLink
       },
     });
+
+    history.push(`/profile`);
+
   }; // end editProfile
 
   return (
@@ -37,9 +45,8 @@ function ProfileEdit() {
           <input
             type="text"
             name="username"
-            placeholder={user.username}
-            value={user.username}
-            onChange={(event) => editProfile({username: event.target.value})}
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
           />
         </label>
       </div>
@@ -49,9 +56,8 @@ function ProfileEdit() {
           <input 
             type="text"
             name="profilePic" 
-            placeholder="Enter New Image url" 
-            value={user.profile_image} 
-            onChange={event => editProfile({profile_image: event.target.value})}
+            value={image}
+            onChange={(event) => setImage(event.target.value)}
           />
         </label>
       </div>
@@ -61,14 +67,13 @@ function ProfileEdit() {
           <input
             type="text"
             name="description"
-            placeholder={user.profile_description} 
-            value={user.profile_description}
-            onChange={(event) => editProfile({profile_description: event.target.value})}
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
           />
         </label>
       </div>
       <div>
-        <p>Play Style:</p>
+        <p>Play Style: {style}</p>
         <input 
           type="radio"
           id="Competitive" 
@@ -92,14 +97,13 @@ function ProfileEdit() {
           <input
             type="text"
             name="discord"
-            placeholder={user.discord_link} 
-            value={user.discord_link}
+            value={discordLink}
             onChange={(event) => setDiscordLink(event.target.value)}
           />
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="SUBMIT EDIT" />
+        <input className="btn" type="submit" name="submit" value="SAVE CHANGES" />
         <button className="btn" onClick ={() => history.push(`/profile`)}>RETURN</button>
       </div>
     </form>

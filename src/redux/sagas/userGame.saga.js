@@ -15,7 +15,7 @@ function* addUserGame(action) {
 
 function* fetchUsers(action) {
   try {
-      const userGame = yield axios.get('/api/usergame', action.payload);
+      const userGame = yield axios.get(`/api/usergame/${action.payload.game_id}`);
       yield put({ type: 'SET_USER_GAME', payload: userGame.data});
       console.log(action.payload);
       console.log('inside fetchUsers Saga', action);
