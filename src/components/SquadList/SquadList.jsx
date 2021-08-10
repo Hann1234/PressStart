@@ -1,43 +1,27 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
-function SquadSelect() {
-    // this component is the squad selection screen for the user to invite other users to their squad.
-    const otherUsers = useSelector((store) => store.userGame);
+function SquadList() {
+    // The Squad List component displays players that the user has accepted matches with
+    const squadList = useSelector((store) => store.squadList);
     const history = useHistory();
     const dispatch = useDispatch();
-    const params = useParams();
 
-    console.log('otherUsers', otherUsers);
+    console.log('squadList', squadList);
 
     useEffect(() => {
         dispatch({ 
-            type: 'FETCH_USERS',
-            payload: {
-                game_id: params.id
-            } 
-        });
-    }, [params.id]); //need to include [params.id] here?
-
-    const handleClick = (usersID) => {
-
-        console.log('inside post dispatch', usersID);
-        // event.preventDefault(); do i need to include this?
-
-        dispatch({ 
-            type: 'CREATE_INVITE',
-            payload: {
-                secondary_user_id: usersID
-            } 
-        });
-    }
+            type: 'FETCH_SQUAD'
+            });
+    }, []);
     
     return (
     <div className="container">
-        <h1>SELECT YOUR SQUAD</h1>
+        <h1>CURRENT SQUAD</h1>
         <button className="btn" onClick={() => history.push('/')}>RETURN HOME</button>
+        <button className="btn" onClick={() => history.push('/')}>INVITE REQUESTS</button>
         <section className="users">
             {otherUsers.map(users => {
                 return (
@@ -56,4 +40,4 @@ function SquadSelect() {
     );
 }
 
-export default SquadSelect;
+export default SquadList;

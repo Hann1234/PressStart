@@ -27,7 +27,7 @@ import SquadSelect from '../SquadSelect/SquadSelect';
 // import Match from '../Match/Match';
 import Profile from '../Profile/Profile';
 import ProfileEdit from '../ProfileEdit/ProfileEdit';
-// import SquadList from '../SquadList/SquadList';
+import SquadList from '../SquadList/SquadList';
 // import SquadRequests from '../SquadResquests/SquadRequests';
 
 
@@ -125,13 +125,13 @@ function App() {
             <ProfileEdit />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             // logged in shows SquadList else shows LoginPage
             exact
             path="/squadlist"
           >
             <SquadList />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
           {/* <ProtectedRoute
             // logged in shows SquadRequests else shows LoginPage

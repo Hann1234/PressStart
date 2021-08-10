@@ -13,7 +13,7 @@ const {
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.body);
     const queryText = `
-    SELECT "user".username, "user".profile_image, "user".profile_description, "user".user_play_style, user_game.time_start, games.game_title
+    SELECT "user".id, "user".username, "user".profile_image, "user".profile_description, "user".user_play_style, user_game.time_start, games.game_title
     FROM "user"
     JOIN user_game ON "user".id = user_game.user_id
     JOIN games ON user_game.game_id = games.id
