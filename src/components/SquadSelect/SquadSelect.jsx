@@ -21,7 +21,7 @@ function SquadSelect() {
         });
     }, [params.id]); //need to include [params.id] here?
 
-    const handleClick = (usersID) => {
+    const handleClick = (usersID, time) => {
 
         console.log('inside post dispatch', usersID);
         // event.preventDefault(); do i need to include this?
@@ -29,7 +29,9 @@ function SquadSelect() {
         dispatch({ 
             type: 'CREATE_INVITE',
             payload: {
-                secondary_user_id: usersID
+                secondary_user_id: usersID,
+                matched_game_id: params.id,
+                matched_time: time
             } 
         });
     }
@@ -47,7 +49,7 @@ function SquadSelect() {
                         <img src={users.profile_image} alt={users.username}/>
                         <p>{users.profile_description}</p>
                         <p>{users.user_play_style}</p>
-                        <button className="btn" onClick={() => handleClick(users.id)}>ADD TO SQUAD</button>
+                        <button className="btn" onClick={() => handleClick(users.id, users.time_start)}>ADD TO SQUAD</button>
                     </div>
                 );
             })}

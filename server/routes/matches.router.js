@@ -6,14 +6,34 @@ const {
     rejectUnauthenticated,
   } = require('../modules/authentication-middleware');
 
-router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log('inside matches post router', req.body);
+router.get('/get', rejectUnauthenticated, (req, res) => {
+
     const queryText = `
-    INSERT INTO matches (primary_user_id, secondary_user_id)
-    VALUES ($1, $2)
+    SELECT "user".username, "user".profile_image, "user".profile_description, "user".user_play_style, "user".discord_link, games.game_title, matches.matched_time, matches.invite_status
+    FROM "user"
+    JOIN matches ON "user".id = matches.secondary_user_id
+    JOIN games ON matches.matched_game_id = games.id
+    WHERE primary_user_id = $1
+    ORDER BY matches.matched_time ASC;
+    `;
+    pool.query(queryText, [req.user.id])
+    .then( result => {
+        res.send(result.rows);
+    })
+    .catch(err => {
+        console.log('ERROR: GET matches', err);
+        res.sendStatus(500)
+    })
+});
+
+router.post('/invite', rejectUnauthenticated, (req, res) => {
+    console.log('inside matches/invite post router', req.body);
+    const queryText = `
+    INSERT INTO matches (primary_user_id, secondary_user_id, matched_game_id, matched_time)
+    VALUES ($1, $2, $3, $4)
     ;`;
 
-    pool.query(queryText, [req.user.id, req.body.secondary_user_id])
+    pool.query(queryText, [req.user.id, req.body.secondary_user_id, req.body.params.id, req.body.matched_time])
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('Add pending match failed: ', err);

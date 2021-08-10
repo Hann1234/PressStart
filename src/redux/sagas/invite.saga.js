@@ -6,8 +6,7 @@ import { call, takeLatest } from 'redux-saga/effects';
 function* createInvite(action) {
     console.log('action inside post sage', action);
   try {
-  //  yield axios.post('/api/matches', action.payload); which is correct?
-      yield call(axios.post, '/api/matches', action.payload);
+      yield axios.post('/api/matches/invite', action.payload);
       console.log('action.payload in post saga', action.payload);
       alert('Invite has been sent');
   } catch (error) {

@@ -5,8 +5,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 function* addUserGame(action) {
   try {
-  //  yield axios.post('/api/usergame', action.payload); which is correct?
-      yield call(axios.post, '/api/usergame', action.payload);
+      yield axios.post('/api/usergame', action.payload);
       // yield put({ type: 'FETCH_USER_GAME'})
   } catch (error) {
     console.log('Failed to add user game time.', error);

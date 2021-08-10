@@ -36,8 +36,10 @@ CREATE TABLE "matches" (
 	"id" SERIAL PRIMARY KEY,
 	"primary_user_id" INT REFERENCES "user" ON DELETE CASCADE NOT NULL,
 	"secondary_user_id" INT REFERENCES "user" ON DELETE CASCADE NOT NULL,
+    "matched_game_id" INT REFERENCES "games" ON DELETE CASCADE NOT NULL,
+    "matched_time" TIMESTAMP,
 	"invite_status" VARCHAR (80) DEFAULT 'pending',
-	"created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	"created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	);
 
 INSERT INTO "games" ("game_title", "game_cover", "game_description")
