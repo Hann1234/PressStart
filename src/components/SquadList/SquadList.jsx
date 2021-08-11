@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import gamesReducer from '../../redux/reducers/games.reducer';
 
 
 function SquadList() {
@@ -48,6 +49,7 @@ function SquadList() {
                     return (users.invite_status === 'accepted' && 
                         <div key={users.id} >
                             <h2>{users.username}</h2>
+                            <h2>{users.game_title}</h2>
                             <h3>{users.matched_time}</h3>
                             <img src={users.profile_image} alt={users.username}/>
                             <p>{users.profile_description}</p>
@@ -60,6 +62,7 @@ function SquadList() {
                     return (users.invite_status === 'accepted' && 
                         <div key={users.id} >
                             <h2>{users.username}</h2>
+                            <h2>{users.game_title}</h2>
                             <h3>{users.matched_time}</h3>
                             <img src={users.profile_image} alt={users.username}/>
                             <p>{users.profile_description}</p>
@@ -75,6 +78,7 @@ function SquadList() {
                     return (users.invite_status === 'pending' && 
                         <div key={users.id} >
                             <h2>{users.username}</h2>
+                            <h2>{users.game_title}</h2>
                             <h3>{users.matched_time}</h3>
                             <img src={users.profile_image} alt={users.username}/>
                             <p>{users.profile_description}</p>
@@ -91,6 +95,7 @@ function SquadList() {
                     return (users.invite_status === 'pending' && 
                         <div key={users.id} >
                             <h2>{users.username}</h2>
+                            <h2>{users.game_title}</h2>
                             <h3>{users.matched_time}</h3>
                             <img src={users.profile_image} alt={users.username}/>
                             <p>{users.profile_description}</p>
