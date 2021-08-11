@@ -16,28 +16,30 @@ function SquadList() {
             type: 'FETCH_MATCHES'
             });
     }, []);
-    
+
     return (
     <div className="container">
-        <h1>CURRENT SQUAD</h1>
+        <h1>MANAGE SQUAD</h1>
         <button className="btn" onClick={() => history.push('/')}>RETURN HOME</button>
-        <button className="btn" onClick={() => history.push('/squadrequests')}>INVITE REQUESTS</button>
         <section className="squad">
-            {squadList.map(users => {
-                return (
-                    <div key={users.id} >
-                        <h2>{users.username}</h2>
-                        <h3>{users.time_start}</h3>
-                        <img src={users.profile_image} alt={users.username}/>
-                        <p>{users.profile_description}</p>
-                        <p>{users.user_play_style}</p>
-                        <button className="btn" onClick={() => handleClick(users.id)}>REMOVE FROM SQUAD</button>
-                    </div>
-                );
-            })}
-        </section>
+            <h2>CURRENT SQUAD</h2>
+                {squadList.map(users => {
+                    return (users.invite_status === 'accepted' && 
+                        <div key={users.id} >
+                            <h2>{users.username}</h2>
+                            <h3>{users.time_start}</h3>
+                            <img src={users.profile_image} alt={users.username}/>
+                            <p>{users.profile_description}</p>
+                            <p>{users.user_play_style}</p>
+                            <button className="btn" onClick={() => handleClick(users.id)}>REMOVE FROM SQUAD</button>
+                        </div>
+                    )
+                })}
+            </section>
     </div>
     );
 }
 
 export default SquadList;
+
+// conditionally render pending requests
