@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   games,
   userGame,
-  matches,
+  matches, // contains userMatches and otherMatches
 });
 
 export default rootReducer;
