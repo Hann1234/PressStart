@@ -7,7 +7,7 @@ function* editProfile(action) {
     yield axios.put('/api/user/edit', action.payload);
     console.log('in edit profile');
     yield put({type: 'FETCH_USER'});
-    action.payload.history.push(`/profile`);
+    // action.payload.history.push(`/profile`);
   } catch (error) {
     console.log('Edit Profile PUT request failed', error);
   }
