@@ -8,8 +8,15 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+
+//Radio Button imports:
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 function ProfileEdit() {
 
@@ -59,11 +66,11 @@ function ProfileEdit() {
     </Button>
     <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
     <form className="formPanel" onSubmit={editProfile}>
-      <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+      <DialogTitle id="form-dialog-title">EDIT PROFILE</DialogTitle>
       <DialogContent>
-        <DialogContentText>
+        {/* <DialogContentText>
           EDIT PROFILE
-        </DialogContentText>
+        </DialogContentText> */}
         <TextField
           autoFocus
           margin="dense"
@@ -95,24 +102,14 @@ function ProfileEdit() {
           fullWidth
         />
         <div>
-        <p>Play Style: {style}</p>
-        <input 
-          type="radio"
-          id="Competitive" 
-          name="play_style"
-          value={style}
-          onClick={() => setStyle('competitive')}
-        />
-        <label htmlFor="Competitive">Competitive</label>
-        <input 
-          type="radio"
-          id="Casual" 
-          name="play_style"
-          value={style}
-          onClick={() => setStyle('casual')}
-        />
-        <label htmlFor="Casual">Casual</label>
-      </div>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">Play Style: {style}</FormLabel>
+            <RadioGroup aria-label="style" name="play_style" value={style} onChange={(event) => setStyle(event.target.value)}>
+              <FormControlLabel value="competitive" control={<Radio />} label="Competitive" />
+              <FormControlLabel value="casual" control={<Radio />} label="Casual" />
+            </RadioGroup>
+        </FormControl>
+        </div>
       <TextField
           autoFocus
           margin="dense"
