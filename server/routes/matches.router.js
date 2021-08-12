@@ -53,7 +53,7 @@ router.post('/invite', rejectUnauthenticated, (req, res) => {
     VALUES ($1, $2, $3, $4)
     ;`;
 
-    pool.query(queryText, [req.user.id, req.body.secondary_user_id, req.body.params.id, req.body.matched_time])
+    pool.query(queryText, [req.user.id, req.body.secondary_user_id, req.body.matched_game_id, req.body.matched_time])
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('Add pending match failed: ', err);

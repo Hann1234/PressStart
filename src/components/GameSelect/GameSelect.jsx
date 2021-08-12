@@ -1,15 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-//carousel imports
-import { Carousel, CarouselItem, CarouselIndicators } from "reactstrap";
+//image list imports:
+import { makeStyles } from '@material-ui/core/styles';
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
+import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+import IconButton from '@material-ui/core/IconButton';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+
+//image list const:
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
+      backgroundColor: theme.palette.background.paper,
+    },
+    imageList: {
+      flexWrap: 'nowrap',
+      // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+      transform: 'translateZ(0)',
+    },
+    title: {
+      color: theme.palette.primary.light,
+    },
+    titleBar: {
+      background:
+        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+    },
+  }));
 
 function GameSelect() {
     // this component is the game selection screen for the user.
     const games = useSelector((store) => store.games);
     const history = useHistory();
     const dispatch = useDispatch();
+
+    //image list const:
+    const classes = useStyles();
 
     useEffect(() => {
         dispatch({ type: 'FETCH_GAMES' });
@@ -18,46 +49,95 @@ function GameSelect() {
     const handleClick = (gameID) => {
         history.push(`/timeselect/${gameID}`); // useParams to pass game id to time select page
     }
-
-    //carousel consts:
-
-    const [activeIndex, setActiveIndex] = React.useState(0);
-    const [animating, setAnimating] = React.useState(false);
-    const onExiting = () => {
-        setAnimating(true);
-    };
-    const onExited = () => {
-        setAnimating(false);
-    };
-    const next = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-        setActiveIndex(nextIndex);
-    };
-    const previous = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-        setActiveIndex(nextIndex);
-    };
-    const goToIndex = newIndex => {
-        if (animating) return;
-        setActiveIndex(newIndex);
-    };
-        
+  
     return (
-        <>
+        <div className={classes.root}>
+        <h1>SELECT YOUR GAME</h1>
+            <ImageList className={classes.imageList} cols={2.5}>
+                {games.map((item) => (
+                <ImageListItem key={item.id}>
+                    <img src={item.game_cover} alt={item.game_title} onClick={() => handleClick(item.id)}/>
+                    <ImageListItemBar
+                    title={item.game_title}
+                    classes={{
+                        root: classes.titleBar,
+                        title: classes.title,
+                    }}
+                    actionIcon={
+                        <IconButton aria-label={`star ${item.game_title}`}>
+                        <StarBorderIcon className={classes.title} />
+                        </IconButton>
+                    }
+                    />
+                </ImageListItem>
+                ))}
+            </ImageList>
+    </div>
+    );
+}
+
+export default GameSelect;
+
+{/* <div className="container">
+        <h1>SELECT YOUR GAME</h1>
+        <section className="games">
+            {games.map(game => {
+                return (
+                    <div key={game.id} >
+                        <h3>{game.game_title}</h3>
+                        <img onClick={() => handleClick(game.id)} src={game.game_cover} alt={game.game_title}/>
+                    </div>
+                );
+            })}
+        </section>
+    </div> */}
+
+// import { Carousel, CarouselItem, CarouselIndicators } from "reactstrap";
+// const [items, setItems] = useState([]);
+// useEffect(() => {
+//     if (games) {
+//         setItems(games);
+//     }
+// }, []);
+
+//carousel consts:
+
+// const [activeIndex, setActiveIndex] = React.useState(0);
+// const [animating, setAnimating] = React.useState(false);
+// const onExiting = () => {
+//     setAnimating(true);
+// };
+// const onExited = () => {
+//     setAnimating(false);
+// };
+// const next = () => {
+//     if (animating) return;
+//     const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+//     setActiveIndex(nextIndex);
+// };
+// const previous = () => {
+//     if (animating) return;
+//     const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+//     setActiveIndex(nextIndex);
+// };
+// const goToIndex = newIndex => {
+//     if (animating) return;
+//     setActiveIndex(newIndex);
+// };
+
+{/* <>
         <Carousel activeIndex={activeIndex} next={next} previous={previous}>
           <CarouselIndicators
-            items={games}
+            items={items}
             activeIndex={activeIndex}
             onClickHandler={goToIndex}
           />
-          {games.map(game => {
+          {items.map(game => {
             return (
               <CarouselItem
                 onExiting={onExiting}
                 onExited={onExited}
-                key={game.id}
+                key={game.game_cover}
               >
                 <img onClick={() => handleClick(game.id)} src={game.game_cover} alt={game.game_title} />
                 <div className="carousel-caption d-none d-md-block">
@@ -91,22 +171,4 @@ function GameSelect() {
             <i className="now-ui-icons arrows-1_minimal-right"></i>
           </a>
         </Carousel>
-      </>
-    );
-}
-
-export default GameSelect;
-
-{/* <div className="container">
-        <h1>SELECT YOUR GAME</h1>
-        <section className="games">
-            {games.map(game => {
-                return (
-                    <div key={game.id} >
-                        <h3>{game.game_title}</h3>
-                        <img onClick={() => handleClick(game.id)} src={game.game_cover} alt={game.game_title}/>
-                    </div>
-                );
-            })}
-        </section>
-    </div> */}
+      </> */}

@@ -7,6 +7,7 @@ function* addUserGame(action) {
   try {
       yield axios.post('/api/usergame', action.payload);
       // yield put({ type: 'FETCH_USER_GAME'})
+      action.payload.history.push(`/squadselect/${action.payload.game_id}`);
   } catch (error) {
     console.log('Failed to add user game time.', error);
   }

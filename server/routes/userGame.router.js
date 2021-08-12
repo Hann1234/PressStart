@@ -33,7 +33,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 
 /**
- * POST route template
+ * POST route template DONT DISPATCH USER_ID
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
 
@@ -42,7 +42,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     VALUES ($1, $2, $3)
     ;`
 
-    pool.query(queryText, [req.body.user_id, req.body.game_id, req.body.time_start])
+    pool.query(queryText, [req.user.id, req.body.game_id, req.body.time_start])
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('Add User Game Failed: ', err);

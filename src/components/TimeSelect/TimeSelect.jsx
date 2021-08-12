@@ -23,14 +23,15 @@ function TimeSelect() {
 
         dispatch({
             type: 'ADD_USER_GAME',
-            // Pass in the user id, game id, and selected time
+            // Pass in the game id, and selected time, and history.push
             payload: {
-                user_id: user.id,
                 game_id: params.id,
-                time_start: selectedStartDate}
+                time_start: selectedStartDate,
+                history: history
+            }
         });
         
-        history.push(`/squadselect/${params.id}`);
+        // history.push(`/squadselect/${params.id}`);
     }
     
 
