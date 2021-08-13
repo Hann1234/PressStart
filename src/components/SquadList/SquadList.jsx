@@ -140,6 +140,7 @@ function SquadList() {
         <Button className={classes.button} onClick={() => history.push('/')}>RETURN HOME</Button>
         <section className="squad">
             <h2>CURRENT SQUAD</h2>
+            <div class="animate__animated animate__fadeInDown">
             <Grid container spacing={3} justifyContent="center">
             {userInvites.map((users, i) => {
                 return (users.invite_status === 'accepted' &&
@@ -234,9 +235,11 @@ function SquadList() {
                 );
             })}
         </Grid>
+        </div>
             </section>
             <section className="pendingInvites">
             <h2>SQUAD INVITES</h2>
+            <div class="animate__animated animate__fadeInDown">
             <Grid container spacing={3} justifyContent="center">
             {otherInvites.map((users, i) => {
                 return (users.invite_status === 'pending' &&
@@ -285,9 +288,11 @@ function SquadList() {
                 );
             })}
         </Grid>
+        </div>
             </section>
             <section className="sentInvites">
             <h2>SENT INVITES</h2>
+            <div class="animate__animated animate__fadeInDown">
             <Grid container spacing={3} justifyContent="center">
             {userInvites.map((users, i) => {
                 return (users.invite_status === 'pending' &&
@@ -332,6 +337,7 @@ function SquadList() {
                 );
             })}
         </Grid>
+        </div>
             </section>
     </div>
     </center>

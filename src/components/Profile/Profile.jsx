@@ -16,6 +16,9 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+//animate.css:
+import "animate.css"
+
 //material.ui card const:
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,6 +61,7 @@ const classes = useStyles();
     <center>
     <div className="container">
         <h2>CHOOSE A CHARACTER</h2>
+        <div class="animate__animated animate__fadeInDown">
         <Grid container spacing={3} justifyContent="center">
           <Grid item style={{display: "flex"}}>
             <Card className={classes.root}>
@@ -83,6 +87,7 @@ const classes = useStyles();
         <ProfileEdit />
         <br></br>
         <Button className={classes.button} onClick={ () => history.push('/')}>RETURN</Button>
+        </div>
     </div>
     </center>
   );

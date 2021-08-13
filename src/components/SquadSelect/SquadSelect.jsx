@@ -101,13 +101,28 @@ function SquadSelect() {
             } 
         });
     }
+
+    // const displayDate = (date) => {
+    //     return (
+    //         <span>
+    //         {date.toLocaleString("en-US", {dateStyle: "short", timeStyle: "short", hour12: true})}
+    //         </span>
+    //         );
+    // }
     
+    // console.log('displayDate', displayDate(new Date()));
+
     return (
         <center>
         <div>
         <h1>SELECT YOUR SQUAD</h1>
+        <Grid container spacing={3} justifyContent="center">
+        <Grid item>
         <Button className={classes.button} onClick={() => history.push('/')}>RETURN HOME</Button>
-        <Grid container spacing={3}>
+        </Grid>
+        </Grid>
+        <div class="animate__animated animate__fadeInDown">
+        <Grid container spacing={3} justifyContent="center">
             {otherUsers.map((users, i) => {
                 return (
                 <Grid item style={{display: "flex"}} key={i}>
@@ -152,6 +167,7 @@ function SquadSelect() {
                 );
             })}
         </Grid>
+        </div>
     </div>
     </center>
     );

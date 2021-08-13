@@ -8,7 +8,10 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-      <p>Info Page</p>
+      <p>
+      Technologies Used:
+      React, Redux, Node, Express, Postgres, postico, material.ui, sweetalert2, animate.css.
+      </p>
     </div>
   );
 }
