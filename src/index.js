@@ -10,6 +10,8 @@ import rootSaga from './redux/sagas/_root.saga'; // imports ./redux/sagas/index.
 
 import App from './components/App/App';
 
+import './index.css';
+
 //material.ui imports:
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import pink from '@material-ui/core/colors/pink';
@@ -25,6 +27,9 @@ const theme = createTheme({
       main: purple[500],
     },
   },
+  // typography: {
+  //   fontFamily: 'Press Start 2P',
+  // }
 });
 
 const sagaMiddleware = createSagaMiddleware();

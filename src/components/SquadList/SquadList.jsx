@@ -252,9 +252,6 @@ function SquadList() {
                             <Typography paragraph>
                             Play Style: {users.user_play_style}
                             </Typography>
-                            <Typography paragraph>
-                            Discord Link: {users.discord_link}
-                            </Typography>
                             <Button className={classes.button} onClick={() => handleAccept(users.id)}>ACCEPT INVITE</Button>
                             <Button className={classes.button} onClick={() => handleDelete(users.id)}>DECLINE INVITE</Button>
                             </CardContent>
@@ -302,9 +299,6 @@ function SquadList() {
                             </Typography>
                             <Typography paragraph>
                             Play Style: {users.user_play_style}
-                            </Typography>
-                            <Typography paragraph>
-                            Discord Link: {users.discord_link}
                             </Typography>
                             <Button className={classes.button} onClick={() => handleDelete(users.id)}>CANCEL INVITE</Button>
                             </CardContent>

@@ -55,6 +55,7 @@ const classes = useStyles();
 
 
   return (
+    <center>
     <div className="container">
         <h2>CHOOSE A CHARACTER</h2>
         <Grid container spacing={3}>
@@ -82,6 +83,7 @@ const classes = useStyles();
         <ProfileEdit />
         <Button className={classes.button} onClick={ () => history.push('/')}>RETURN</Button>
     </div>
+    </center>
   );
 }
 

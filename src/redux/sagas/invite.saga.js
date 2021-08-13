@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { call, takeLatest } from 'redux-saga/effects';
 
+//import sweetalert2:
+import Swal from 'sweetalert2';
+
 // worker Saga: will be fired on "CREATE_INVITE" action
 
 function* createInvite(action) {
@@ -8,7 +11,7 @@ function* createInvite(action) {
   try {
       yield axios.post('/api/matches/invite', action.payload);
       console.log('action.payload in post saga', action.payload);
-      alert('Invite has been sent');
+      Swal.fire('Invite has been sent ');
   } catch (error) {
     console.log('Failed to create invite.', error);
   }

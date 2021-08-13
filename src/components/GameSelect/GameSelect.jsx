@@ -53,7 +53,7 @@ function GameSelect() {
     return (
         <div className={classes.root}>
         <h1>SELECT YOUR GAME</h1>
-            <ImageList className={classes.imageList} cols={2.5}>
+            <ImageList className={classes.imageList} cols={3}>
                 {games.map((item) => (
                 <ImageListItem key={item.id}>
                     <img src={item.game_cover} alt={item.game_title} onClick={() => handleClick(item.id)}/>

@@ -20,6 +20,9 @@ import Grid from '@material-ui/core/Grid';
 //material.ui button imports:
 import Button from '@material-ui/core/Button';
 
+//import sweetalert2:
+import Swal from 'sweetalert2';
+
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
