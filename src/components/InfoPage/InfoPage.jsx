@@ -10,7 +10,7 @@ function InfoPage() {
     <div className="container">
       <p>
       Technologies Used:
-      React, Redux, Node, Express, Postgres, postico, material.ui, sweetalert2, animate.css.
+      Passport, React, Redux, Node, Express, Postgres, postico, material.ui, sweetalert2, animate.css.
       </p>
     </div>
   );
