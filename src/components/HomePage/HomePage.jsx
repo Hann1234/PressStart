@@ -33,9 +33,9 @@ function HomePage() {
 
   return (
     <center>
-    <div className="container">
+    <div className="container" class="animate__animated animate__zoomInUp">
       <h2>Hello there, {user.username}! Press START to find your squad!</h2>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justifyContent="center">
       <Grid item>
         <div class="animate__animated animate__pulse animate__infinite">
         <Button className={classes.button} onClick={ () => history.push('/gameselect')}>START</Button>

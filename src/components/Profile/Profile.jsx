@@ -58,7 +58,7 @@ const classes = useStyles();
     <center>
     <div className="container">
         <h2>CHOOSE A CHARACTER</h2>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} justifyContent="center">
           <Grid item style={{display: "flex"}}>
             <Card className={classes.root}>
               <CardHeader
@@ -81,6 +81,7 @@ const classes = useStyles();
           </Grid>
         </Grid>
         <ProfileEdit />
+        <br></br>
         <Button className={classes.button} onClick={ () => history.push('/')}>RETURN</Button>
     </div>
     </center>

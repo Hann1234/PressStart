@@ -9,6 +9,10 @@ import DateFnsUtils from '@date-io/date-fns';
 //material.ui button imports:
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+
+//animate.css:
+import "animate.css"
 
 const useStyles = makeStyles({
   button: {
@@ -54,6 +58,7 @@ function TimeSelect() {
 
     return (
     <div className="container">
+        <center>
         <h1>SELECT YOUR TIME</h1>
             <form onSubmit={handleSubmit}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -69,9 +74,18 @@ function TimeSelect() {
                     </Fragment>
                 </MuiPickersUtilsProvider>
                 <br></br>
-                <Button className={classes.button} type="submit">START</Button>
-                <Button className={classes.button} onClick ={() => history.push(`/gameselect`)}>RETURN</Button>
+                <Grid container spacing={3} justifyContent="center">
+                    <Grid item>
+                        <div class="animate__animated animate__pulse animate__infinite">
+                            <Button className={classes.button} type="submit">START</Button>
+                        </div>
+                    </Grid>
+                    <Grid item>
+                        <Button className={classes.button} onClick ={() => history.push(`/gameselect`)}>RETURN</Button>
+                    </Grid>
+                </Grid>
                 </form>
+                </center>
     </div>
     );
 }

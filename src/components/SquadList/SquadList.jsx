@@ -20,6 +20,12 @@ import Grid from '@material-ui/core/Grid';
 //material.ui button imports:
 import Button from '@material-ui/core/Button';
 
+//animate.css:
+import "animate.css"
+
+//import sweetalert2:
+import Swal from 'sweetalert2';
+
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
@@ -73,11 +79,24 @@ function SquadList() {
     }, []);
 
     const handleDelete = (usersID) => {
-        dispatch({ 
-            type: 'DELETE_MATCH',
-            payload: usersID
-            });
-            console.log('inside dispatch', usersID);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch({ 
+                    type: 'DELETE_MATCH',
+                    payload: usersID
+                    });
+                    console.log('inside dispatch', usersID);
+            }
+          })
+        
      };
 
      const handleAccept = (usersID) => {
@@ -115,12 +134,13 @@ function SquadList() {
     };
 
     return (
+    <center>
     <div className="container">
         <h1>MANAGE SQUAD</h1>
         <Button className={classes.button} onClick={() => history.push('/')}>RETURN HOME</Button>
         <section className="squad">
             <h2>CURRENT SQUAD</h2>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} justifyContent="center">
             {userInvites.map((users, i) => {
                 return (users.invite_status === 'accepted' &&
                 <Grid item style={{display: "flex"}} key={i}>
@@ -167,7 +187,7 @@ function SquadList() {
                 );
             })}
         </Grid>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} justifyContent="center">
             {otherInvites.map((users, i) => {
                 return (users.invite_status === 'accepted' &&
                 <Grid item style={{display: "flex"}} key={i}>
@@ -217,7 +237,7 @@ function SquadList() {
             </section>
             <section className="pendingInvites">
             <h2>SQUAD INVITES</h2>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} justifyContent="center">
             {otherInvites.map((users, i) => {
                 return (users.invite_status === 'pending' &&
                 <Grid item style={{display: "flex"}} key={i}>
@@ -252,7 +272,10 @@ function SquadList() {
                             <Typography paragraph>
                             Play Style: {users.user_play_style}
                             </Typography>
+                            <div class="animate__animated animate__pulse animate__infinite">
                             <Button className={classes.button} onClick={() => handleAccept(users.id)}>ACCEPT INVITE</Button>
+                            </div>
+                            <br></br>
                             <Button className={classes.button} onClick={() => handleDelete(users.id)}>DECLINE INVITE</Button>
                             </CardContent>
                         </Collapse>
@@ -265,7 +288,7 @@ function SquadList() {
             </section>
             <section className="sentInvites">
             <h2>SENT INVITES</h2>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} justifyContent="center">
             {userInvites.map((users, i) => {
                 return (users.invite_status === 'pending' &&
                 <Grid item style={{display: "flex"}} key={i}>
@@ -311,6 +334,7 @@ function SquadList() {
         </Grid>
             </section>
     </div>
+    </center>
     );
 }
 

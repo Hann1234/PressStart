@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+//import sweetalert2:
+import Swal from 'sweetalert2';
+
 // worker Saga: will be fired on "FETCH_MATCHES" actions
 function* fetchMatches() {
   try {
@@ -32,6 +35,11 @@ function* deleteMatch(action) {
         yield axios.delete(`/api/matches/delete/${action.payload}`);
         console.log('delete saga payload', action.payload);
         yield put({ type: 'FETCH_MATCHES' });
+        Swal.fire(
+          'Deleted!',
+          'The squad mate / invite has been deleted.',
+          'success'
+        )
     } catch (error) {
         console.log('unable to delete match:', error);
     }

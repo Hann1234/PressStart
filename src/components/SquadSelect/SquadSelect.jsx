@@ -23,6 +23,9 @@ import Button from '@material-ui/core/Button';
 //import sweetalert2:
 import Swal from 'sweetalert2';
 
+//animate.css:
+import "animate.css"
+
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
@@ -100,6 +103,7 @@ function SquadSelect() {
     }
     
     return (
+        <center>
         <div>
         <h1>SELECT YOUR SQUAD</h1>
         <Button className={classes.button} onClick={() => history.push('/')}>RETURN HOME</Button>
@@ -137,7 +141,9 @@ function SquadSelect() {
                             <Typography paragraph>
                             User Play Style: {users.user_play_style}
                             </Typography>
+                            <div class="animate__animated animate__pulse animate__infinite">
                             <Button className={classes.button} onClick={() => handleClick(users.id, users.time_start)}>ADD TO SQUAD</Button>
+                            </div>
                             </CardContent>
                         </Collapse>
                     </Card>
@@ -147,6 +153,7 @@ function SquadSelect() {
             })}
         </Grid>
     </div>
+    </center>
     );
 }
 
