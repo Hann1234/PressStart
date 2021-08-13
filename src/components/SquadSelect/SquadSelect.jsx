@@ -116,7 +116,7 @@ function SquadSelect() {
                         <CardActions disableSpacing>
                             <IconButton
                             className={clsx(classes.expand, {
-                                [classes.expandOpen]: expanded,
+                                [classes.expandOpen]: expandedId === i,
                             })}
                             onClick={() => {handleExpandClick(i)}}
                             aria-expanded={expandedId === i}
