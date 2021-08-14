@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 //material.ui time picker:
 import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from '@date-io/date-fns';
+import Card from '@material-ui/core/Card';
 
 //material.ui button imports:
 import { makeStyles } from '@material-ui/core/styles';
@@ -23,6 +24,9 @@ const useStyles = makeStyles({
     color: 'white',
     height: 48,
     padding: '0 30px',
+  },
+  root: {
+    maxWidth: 250,
   },
 });
 
@@ -59,11 +63,11 @@ function TimeSelect() {
     return (
     <div className="container">
         <center>
-        <h1>SELECT YOUR TIME</h1>
+        <h2>SELECT YOUR TIME</h2>
             <form onSubmit={handleSubmit}>
+                <Card className={classes.root}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                     <Fragment>
-                        <p>Required:</p>
                     <DateTimePicker
                         value={selectedStartDate}
                         disablePast
@@ -73,14 +77,15 @@ function TimeSelect() {
                     />
                     </Fragment>
                 </MuiPickersUtilsProvider>
+                </Card>
                 <br></br>
                 <Grid container spacing={3} justifyContent="center">
-                    <Grid item>
+                    <Grid item xs={12}>
                         <div class="animate__animated animate__pulse animate__infinite">
                             <Button className={classes.button} type="submit">START</Button>
                         </div>
                     </Grid>
-                    <Grid item>
+                    <Grid item xs={12}>
                         <Button className={classes.button} onClick ={() => history.push(`/gameselect`)}>RETURN</Button>
                     </Grid>
                 </Grid>

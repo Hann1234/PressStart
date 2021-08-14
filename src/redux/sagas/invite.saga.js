@@ -11,7 +11,7 @@ function* createInvite(action) {
   try {
       yield axios.post('/api/matches/invite', action.payload);
       console.log('action.payload in post saga', action.payload);
-      Swal.fire('Invite has been sent ');
+      Swal.fire('Invite has been sent!');
   } catch (error) {
     console.log('Failed to create invite.', error);
   }

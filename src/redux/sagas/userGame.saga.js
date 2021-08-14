@@ -1,12 +1,16 @@
 import axios from 'axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
 
+//import sweetalert2:
+import Swal from 'sweetalert2';
+
 // worker Saga: will be fired on "ADD_USER_GAME" action
 
 function* addUserGame(action) {
   try {
       yield axios.post('/api/usergame', action.payload);
       // yield put({ type: 'FETCH_USER_GAME'})
+      Swal.fire('Your selected game and time have been posted, other users can now send you invites!');
       action.payload.history.push(`/squadselect/${action.payload.game_id}`);
   } catch (error) {
     console.log('Failed to add user game time.', error);

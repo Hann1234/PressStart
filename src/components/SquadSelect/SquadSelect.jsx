@@ -115,7 +115,7 @@ function SquadSelect() {
     return (
         <center>
         <div>
-        <h1>SELECT YOUR SQUAD</h1>
+        <h2>SELECT YOUR SQUAD</h2>
         <Grid container spacing={3} justifyContent="center">
         <Grid item>
         <Button className={classes.button} onClick={() => history.push('/')}>RETURN HOME</Button>
