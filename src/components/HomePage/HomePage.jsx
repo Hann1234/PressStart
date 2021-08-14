@@ -14,7 +14,7 @@ import "animate.css"
 
 const useStyles = makeStyles({
   button: {
-    fontFamily: 'Press Start 2P',
+    // fontFamily: 'Press Start 2P',
     background: 'linear-gradient(45deg, #910000 20%, #ff0000 90%)',
     border: 0,
     borderRadius: 3,
@@ -34,20 +34,28 @@ function HomePage() {
   return (
     <center>
     <div className="container" class="animate__animated animate__zoomInUp">
-      <h2>Hello there, {user.username}! Press START to find your squad!</h2>
-      <Grid container spacing={3} justifyContent="center">
-      <Grid item>
+    <Grid container spacing={3} justifyContent="center">
+      <Grid item xs={12}>
+        <h2>Hello there, {user.username}!</h2>
+      </Grid>
+      <Grid item xs={12}>
+      <h2>Press</h2>
+      </Grid>
+      <Grid item xs={12}>
         <div class="animate__animated animate__pulse animate__infinite">
         <Button className={classes.button} onClick={ () => history.push('/gameselect')}>START</Button>
         </div>
       </Grid>
-      <Grid item>
+      <Grid item xs={12}>
+        <h2>to find your squad!</h2>
+      </Grid>
+      <Grid item xs={12}>
       <Button className={classes.button} onClick={ () => history.push('/profile')}>PROFILE</Button>
       </Grid>
-      <Grid item>
+      <Grid item xs={12}>
       <Button className={classes.button} onClick={ () => history.push('/squadlist')}>SQUAD</Button>
       </Grid>
-      <Grid item>
+      <Grid item xs={12}>
       <LogOutButton className={classes.button} />
       </Grid>
     </Grid>

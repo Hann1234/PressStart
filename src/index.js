@@ -14,14 +14,14 @@ import './index.css';
 
 //material.ui imports:
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import pink from '@material-ui/core/colors/pink';
+import red from '@material-ui/core/colors/red';
 import purple from '@material-ui/core/colors/purple';
 
 //material.ui theme const:
 const theme = createTheme({
   palette: {
     primary: {
-      main: pink[500],
+      main: red[500],
     },
     secondary: {
       main: purple[500],

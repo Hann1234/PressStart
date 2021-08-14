@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 html,
 body,
 #react-root {
@@ -7,6 +9,12 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  background-color: black;
+}
+
+h2 {
+  color: white;
+  font-family: 'Press Start 2P';
 }
 
 img {

@@ -9,6 +9,16 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import Grid from '@material-ui/core/Grid';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { grey } from '@material-ui/core/colors';
+
+import './GameSelect.css';
+
+//animate.css:
+import "animate.css"
+
 
 //image list const:
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
       flexWrap: 'wrap',
       justifyContent: 'space-around',
       overflow: 'hidden',
-      backgroundColor: theme.palette.background.paper,
     },
     imageList: {
       flexWrap: 'nowrap',
@@ -52,7 +61,9 @@ function GameSelect() {
   
     return (
         <div className={classes.root}>
-        <h1>SELECT YOUR GAME</h1>
+        <h2>SELECT YOUR GAME</h2>
+        <Grid container spacing={3} justifyContent="center">
+        <Grid item xs={10}>
             <ImageList className={classes.imageList} cols={3}>
                 {games.map((item) => (
                 <ImageListItem key={item.id}>
@@ -72,6 +83,12 @@ function GameSelect() {
                 </ImageListItem>
                 ))}
             </ImageList>
+            </Grid>
+        </Grid>
+        <div class="animate__animated animate__headShake animate__infinite">
+          <ArrowBackIcon style={{ color: grey[50] }} fontSize="large" />
+          <ArrowForwardIcon style={{ color: grey[50] }} fontSize="large" />                    
+        </div>
     </div>
     );
 }
