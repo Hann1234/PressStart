@@ -10,8 +10,7 @@ function* addUserGame(action) {
   try {
       yield axios.post('/api/usergame', action.payload);
       // yield put({ type: 'FETCH_USER_GAME'})
-      Swal.fire('Your selected game and time have been posted, other users can now send you invites!');
-      action.payload.history.push(`/squadselect/${action.payload.game_id}`);
+      yield action.payload.history.push(`/squadselect/${action.payload.game_id}`);
   } catch (error) {
     console.log('Failed to add user game time.', error);
   }

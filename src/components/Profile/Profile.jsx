@@ -60,7 +60,7 @@ const classes = useStyles();
   return (
     <center>
     <div className="container">
-        <h2>CHOOSE A CHARACTER</h2>
+        <h2>CHOOSE YOUR CHARACTER</h2>
         <div class="animate__animated animate__fadeInDown">
         <Grid container spacing={3} justifyContent="center">
           <Grid item style={{display: "flex"}}>

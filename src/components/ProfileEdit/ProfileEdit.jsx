@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './ProfileEdit.css';
 // import { useHistory, useParams } from 'react-router-dom';
 
 //Form Dialog imports:
@@ -66,7 +67,7 @@ function ProfileEdit() {
     </Button>
     <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
     <form className="formPanel" onSubmit={editProfile}>
-      <DialogTitle id="form-dialog-title">EDIT PROFILE</DialogTitle>
+      <h3 id="form-dialog-title" >EDIT PROFILE</h3>
       <DialogContent>
         {/* <DialogContentText>
           EDIT PROFILE

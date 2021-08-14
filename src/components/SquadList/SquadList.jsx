@@ -136,7 +136,7 @@ function SquadList() {
     return (
     <center>
     <div className="container">
-        <h1>MANAGE SQUAD</h1>
+        <h2>MANAGE SQUAD</h2>
         <Button className={classes.button} onClick={() => history.push('/')}>RETURN HOME</Button>
         <section className="squad">
             <h2>CURRENT SQUAD</h2>

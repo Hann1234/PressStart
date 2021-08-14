@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 function SquadSelect() {
+
     // this component is the squad selection screen for the user to invite other users to their squad.
     const otherUsers = useSelector((store) => store.userGame);
     const history = useHistory();
@@ -79,6 +80,9 @@ function SquadSelect() {
     console.log('otherUsers', otherUsers);
 
     useEffect(() => {
+        //alert the user their game and time has been posted
+        Swal.fire('Other players may now send you invites for selected game and time!');
+
         dispatch({ 
             type: 'FETCH_USERS',
             payload: {
