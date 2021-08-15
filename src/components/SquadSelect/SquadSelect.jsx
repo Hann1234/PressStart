@@ -151,7 +151,7 @@ function SquadSelect() {
                 return (
                 <Grid item style={{display: "flex"}} key={i}>
                     <div>
-                    <Card className={classes.root} style={{backgroundColor: "#F0f8FF"}}>
+                    <Card className={classes.root} style={{backgroundColor: "#F0F8FF"}}>
                         <CardHeader
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
