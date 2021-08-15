@@ -68,7 +68,7 @@ function TimeSelect() {
     // count.length === 0 ? 0 : Number(count[0].count)
     return (
     <div className="container">
-        <style>{games.length === 0 ? "body {background-color: black;}" : 
+        <style>{games.length === 0 ? "body {background-color: black;}" : //allows the user to reload the page
             `body::after {
             content: ""; 
             background-image: url(${games[params.id-1].game_cover}); 

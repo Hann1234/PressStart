@@ -127,7 +127,7 @@ function SquadSelect() {
 
     return (
         <center>
-        <style>{games.length === 0 ? "body {background-color: black;}" :
+        <style>{games.length === 0 ? "body {background-color: black;}" : //allows the user to reload the page
             `body::after {
             content: ""; 
             background-image: url(${games[params.id-1].game_cover}); 
