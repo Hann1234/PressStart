@@ -69,6 +69,7 @@ const classes = useStyles();
                   avatar={
                   <Avatar aria-label="profilepic" className={classes.avatar} src={user.profile_image} alt={user.username} />
                   }
+                  titleTypographyProps={{variant:'h4' }}
                   title={user.username}
               />
               <CardContent>

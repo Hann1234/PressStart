@@ -12,7 +12,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
     const query = `
     SELECT * FROM "games"
-    ORDER BY "game_title" ASC
+    ORDER BY "id"
     `;
     pool.query(query)
     .then( result => {

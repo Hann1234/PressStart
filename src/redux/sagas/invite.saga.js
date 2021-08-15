@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { call, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 
 //import sweetalert2:
 import Swal from 'sweetalert2';
@@ -17,8 +17,19 @@ function* createInvite(action) {
   }
 }
 
+function* inviteCount() {
+  try {
+    const inviteCountResponse = yield axios.get('/api/matches/count');
+    console.log('get invite count:', inviteCountResponse.data);
+    yield put({ type: 'SET_INVITE_COUNT', payload: inviteCountResponse.data });
+  } catch (error) {
+    console.log('invite count request failed', error);
+  }
+}
+
 function* inviteSaga() {
   yield takeLatest('CREATE_INVITE', createInvite);
+  yield takeLatest('FETCH_INVITE_COUNT', inviteCount);
 }
 
 export default inviteSaga;

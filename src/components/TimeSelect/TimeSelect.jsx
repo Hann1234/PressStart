@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -35,11 +35,17 @@ function TimeSelect() {
 
     const [selectedStartDate, handleStartDateChange] = useState(new Date());
     const user = useSelector((store) => store.user);
+
+    const games = useSelector((store) => store.games);
+
     const history = useHistory();
     const params = useParams();
     const dispatch = useDispatch();
     const classes = useStyles();
 
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GAMES' });
+    }, []);
 
     const handleSubmit = (event) => {
 
@@ -59,9 +65,23 @@ function TimeSelect() {
         // history.push(`/squadselect/${params.id}`);
     }
     
-
+    // count.length === 0 ? 0 : Number(count[0].count)
     return (
     <div className="container">
+        <style>{games.length === 0 ? "body {background-color: black;}" : 
+            `body::after {
+            content: ""; 
+            background-image: url(${games[params.id-1].game_cover}); 
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            opacity: 0.5; 
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;}`}
+        </style>
         <center>
         <h2>SELECT YOUR TIME</h2>
             <form onSubmit={handleSubmit}>

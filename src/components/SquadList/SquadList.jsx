@@ -151,6 +151,7 @@ function SquadList() {
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
                             }
+                            titleTypographyProps={{variant:'h5' }}
                             title={users.username}
                             subheader={users.game_title}
                         />
@@ -198,6 +199,7 @@ function SquadList() {
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
                             }
+                            titleTypographyProps={{variant:'h5' }}
                             title={users.username}
                             subheader={users.game_title}
                         />
@@ -250,6 +252,7 @@ function SquadList() {
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
                             }
+                            titleTypographyProps={{variant:'h5' }}
                             title={users.username}
                             subheader={users.game_title}
                         />
@@ -303,6 +306,7 @@ function SquadList() {
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
                             }
+                            titleTypographyProps={{variant:'h5' }}
                             title={users.username}
                             subheader={users.game_title}
                         />

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './HomePage.css';
 
@@ -8,6 +8,9 @@ import './HomePage.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+
+//material.ui badge imports:
+import Badge from '@material-ui/core/Badge';
 
 //animate.css:
 import "animate.css"
@@ -28,8 +31,15 @@ const useStyles = makeStyles({
 function HomePage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+  const count = useSelector((store) => store.inviteCount);
+
   const history = useHistory();
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_INVITE_COUNT' });
+}, []);
 
   return (
     <center>
@@ -53,7 +63,9 @@ function HomePage() {
       <Button className={classes.button} onClick={ () => history.push('/profile')}>PROFILE</Button>
       </Grid>
       <Grid item xs={12}>
+      <Badge badgeContent={count.length === 0 ? 0 : Number(count[0].count)} color="primary">
       <Button className={classes.button} onClick={ () => history.push('/squadlist')}>SQUAD</Button>
+      </Badge>
       </Grid>
       <Grid item xs={12}>
       <LogOutButton className={classes.button} />

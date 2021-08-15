@@ -64,6 +64,8 @@ function SquadSelect() {
 
     // this component is the squad selection screen for the user to invite other users to their squad.
     const otherUsers = useSelector((store) => store.userGame);
+    const games = useSelector((store) => store.games);
+
     const history = useHistory();
     const dispatch = useDispatch();
     const params = useParams();
@@ -89,7 +91,14 @@ function SquadSelect() {
                 game_id: params.id
             } 
         });
+
+        dispatch({ type: 'FETCH_GAMES' });
+
     }, [params.id]); //need to include [params.id] here?
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GAMES' });
+    }, []);
 
     const handleClick = (usersID, time) => {
 
@@ -118,6 +127,21 @@ function SquadSelect() {
 
     return (
         <center>
+        <style>{games.length === 0 ? "body {background-color: black;}" :
+            `body::after {
+            content: ""; 
+            background-image: url(${games[params.id-1].game_cover}); 
+            background-repeat: no-repeat; 
+            background-size: cover;
+            background-attachment: fixed;
+            opacity: 0.5; 
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;}`}
+        </style>
         <div>
         <h2>SELECT YOUR SQUAD</h2>
         <Grid container spacing={3} justifyContent="center">
@@ -136,6 +160,7 @@ function SquadSelect() {
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
                             }
+                            titleTypographyProps={{variant:'h5' }}
                             title={users.username}
                             subheader={users.time_start}
                         />

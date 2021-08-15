@@ -9,12 +9,12 @@ import './InfoPage.css';
 function InfoPage() {
   return (
     <div className="container">
-      <p>
+      <h4>
       Technologies Used:
-      </p>
-      <p>
+      </h4>
+      <h4>
       Passport, React, Redux, Node, Express, Postgres, postico, material.ui, sweetalert2, animate.css.
-      </p>
+      </h4>
     </div>
   );
 }

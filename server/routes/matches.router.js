@@ -46,6 +46,23 @@ router.get('/receivedinvites', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.get('/count', rejectUnauthenticated, (req, res) => {
+
+  const queryText = `
+  SELECT count(*)
+  FROM matches
+  WHERE primary_user_id != $1 AND secondary_user_id = $1 AND invite_status = 'pending';
+  `;
+  pool.query(queryText, [req.user.id])
+  .then( result => {
+      res.send(result.rows);
+  })
+  .catch(err => {
+      console.log('ERROR: GET matches', err);
+      res.sendStatus(500)
+  })
+});
+
 router.post('/invite', rejectUnauthenticated, (req, res) => {
     console.log('inside matches/invite post router', req.body);
     const queryText = `
