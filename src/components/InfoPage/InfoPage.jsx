@@ -1,4 +1,5 @@
 import React from 'react';
+import './InfoPage.css';
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -10,6 +11,8 @@ function InfoPage() {
     <div className="container">
       <p>
       Technologies Used:
+      </p>
+      <p>
       Passport, React, Redux, Node, Express, Postgres, postico, material.ui, sweetalert2, animate.css.
       </p>
     </div>
