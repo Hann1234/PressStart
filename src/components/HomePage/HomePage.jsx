@@ -43,6 +43,14 @@ function HomePage() {
 
   return (
     <center>
+      <style>{
+            `body {
+              background-image: url('https://thumbs.gfycat.com/ImpressionableWeeCow-max-1mb.gif'), url('https://thumbs.gfycat.com/ImpressionableWeeCow-max-1mb.gif');
+              background-repeat: no-repeat, no-repeat;
+              background-attachment: fixed, fixed;
+              background-position: left, right;
+            }`}
+        </style>
     <div className="container" class="animate__animated animate__zoomInUp">
     <Grid container spacing={3} justifyContent="center">
       <Grid item xs={12}>

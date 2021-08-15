@@ -59,6 +59,14 @@ const classes = useStyles();
 
   return (
     <center>
+      <style>{
+            `body {
+              background-image: url('https://thumbs.gfycat.com/ImpressionableWeeCow-max-1mb.gif'), url('https://thumbs.gfycat.com/ImpressionableWeeCow-max-1mb.gif');
+              background-repeat: no-repeat, no-repeat;
+              background-attachment: fixed, fixed;
+              background-position: left, right;
+            }`}
+        </style>
     <div className="container">
         <h2>CHOOSE YOUR CHARACTER</h2>
         <div class="animate__animated animate__fadeInDown">
