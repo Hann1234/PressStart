@@ -84,6 +84,7 @@ function TimeSelect() {
         </style>
         <center>
         <h2>SELECT YOUR TIME</h2>
+        <div class="animate__animated animate__fadeInDown">
             <form onSubmit={handleSubmit}>
                 <Card className={classes.root}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -110,6 +111,7 @@ function TimeSelect() {
                     </Grid>
                 </Grid>
                 </form>
+                </div>
                 </center>
     </div>
     );

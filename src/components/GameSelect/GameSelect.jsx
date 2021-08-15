@@ -62,7 +62,8 @@ function GameSelect() {
     return (
         <div className={classes.root}>
         <h2>SELECT YOUR GAME</h2>
-        <Grid container spacing={3} justifyContent="center">
+        <div class="animate__animated animate__fadeInDown">
+        <Grid container spacing={3} justifyContent="center" >
         <Grid item xs={10}>
             <ImageList className={classes.imageList} cols={3}>
                 {games.map((item) => (
@@ -85,6 +86,7 @@ function GameSelect() {
             </ImageList>
             </Grid>
         </Grid>
+        </div>
         <div class="animate__animated animate__headShake animate__infinite">
           <ArrowBackIcon style={{ color: grey[50] }} fontSize="large" />
           <ArrowForwardIcon style={{ color: grey[50] }} fontSize="large" />                    
