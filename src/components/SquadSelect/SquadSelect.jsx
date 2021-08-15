@@ -20,9 +20,6 @@ import Grid from '@material-ui/core/Grid';
 //material.ui button imports:
 import Button from '@material-ui/core/Button';
 
-//import sweetalert2:
-import Swal from 'sweetalert2';
-
 //animate.css:
 import "animate.css"
 
@@ -82,8 +79,6 @@ function SquadSelect() {
     console.log('otherUsers', otherUsers);
 
     useEffect(() => {
-        //alert the user their game and time has been posted
-        Swal.fire('Other players may now send you invites for selected game and time!');
 
         dispatch({ 
             type: 'FETCH_USERS',
