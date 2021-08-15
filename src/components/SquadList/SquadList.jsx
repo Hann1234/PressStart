@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { format, parseISO } from 'date-fns'
 
-
 //material.ui card imports:
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -156,7 +155,7 @@ function SquadList() {
                 return (users.invite_status === 'accepted' &&
                 <Grid item style={{display: "flex"}} key={i}>
                     <div>
-                    <Card className={classes.root}>
+                    <Card className={classes.root} style={{backgroundColor: "#F0f8FF"}}>
                         <CardHeader
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
@@ -204,7 +203,7 @@ function SquadList() {
                 return (users.invite_status === 'accepted' &&
                 <Grid item style={{display: "flex"}} key={i}>
                     <div>
-                    <Card className={classes.root}>
+                    <Card className={classes.root} style={{backgroundColor: "#F0f8FF"}}>
                         <CardHeader
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
@@ -257,7 +256,7 @@ function SquadList() {
                 return (users.invite_status === 'pending' &&
                 <Grid item style={{display: "flex"}} key={i}>
                     <div>
-                    <Card className={classes.root}>
+                    <Card className={classes.root} style={{backgroundColor: "#F0f8FF"}}>
                         <CardHeader
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
@@ -311,7 +310,7 @@ function SquadList() {
                 return (users.invite_status === 'pending' &&
                 <Grid item style={{display: "flex"}} key={i}>
                     <div>
-                    <Card className={classes.root}>
+                    <Card className={classes.root} style={{backgroundColor: "#F0f8FF"}}>
                         <CardHeader
                             avatar={
                             <Avatar aria-label="profilepic" className={classes.avatar} src={users.profile_image} alt={users.username} />
