@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { format, parseISO } from 'date-fns'
 
 //material.ui card imports:
 import { makeStyles } from '@material-ui/core/styles';
@@ -157,7 +158,7 @@ function SquadSelect() {
                             }
                             titleTypographyProps={{variant:'h5' }}
                             title={users.username}
-                            subheader={users.time_start}
+                            subheader={format(parseISO(users.time_start), 'MMM d, h:mmaa')}
                         />
                         <CardActions disableSpacing>
                             <IconButton

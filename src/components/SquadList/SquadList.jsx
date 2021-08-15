@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { format, parseISO } from 'date-fns'
+
 
 //material.ui card imports:
 import { makeStyles } from '@material-ui/core/styles';
@@ -169,7 +171,7 @@ function SquadList() {
                         </CardActions>
                         <Collapse in={expandedId === i} timeout="auto" unmountOnExit>
                             <CardContent>
-                            <Typography paragraph>Scheduled Time: {users.matched_time}</Typography>
+                            <Typography paragraph>Scheduled Time: {format(parseISO(users.matched_time), 'MMM d, h:mmaa')}</Typography>
                             <Typography paragraph>Profile Description:</Typography>
                             <Typography paragraph>
                             {users.profile_description}
@@ -217,7 +219,7 @@ function SquadList() {
                         </CardActions>
                         <Collapse in={expandedId2 === i} timeout="auto" unmountOnExit>
                             <CardContent>
-                            <Typography paragraph>Scheduled Time: {users.matched_time}</Typography>
+                            <Typography paragraph>Scheduled Time: {format(parseISO(users.matched_time), 'MMM d, h:mmaa')}</Typography>
                             <Typography paragraph>Profile Description:</Typography>
                             <Typography paragraph>
                             {users.profile_description}
@@ -270,7 +272,7 @@ function SquadList() {
                         </CardActions>
                         <Collapse in={expandedId3 === i} timeout="auto" unmountOnExit>
                             <CardContent>
-                            <Typography paragraph>Scheduled Time: {users.matched_time}</Typography>
+                            <Typography paragraph>Scheduled Time: {format(parseISO(users.matched_time), 'MMM d, h:mmaa')}</Typography>
                             <Typography paragraph>Profile Description:</Typography>
                             <Typography paragraph>
                             {users.profile_description}
@@ -324,7 +326,7 @@ function SquadList() {
                         </CardActions>
                         <Collapse in={expandedId4 === i} timeout="auto" unmountOnExit>
                             <CardContent>
-                            <Typography paragraph>Scheduled Time: {users.matched_time}</Typography>
+                            <Typography paragraph>Scheduled Time: {format(parseISO(users.matched_time), 'MMM d, h:mmaa')}</Typography>
                             <Typography paragraph>Profile Description:</Typography>
                             <Typography paragraph>
                             {users.profile_description}
