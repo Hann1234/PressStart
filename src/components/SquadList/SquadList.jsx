@@ -240,7 +240,7 @@ function SquadList() {
         </div>
             </section>
             <section className="pendingInvites">
-            <h2>SQUAD INVITES</h2>
+            <h2>RECEIVED INVITES</h2>
             <div class="animate__animated animate__fadeInDown">
             <Grid container spacing={3} justifyContent="center">
             {otherInvites.map((users, i) => {

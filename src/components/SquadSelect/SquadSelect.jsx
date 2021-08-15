@@ -127,7 +127,7 @@ function SquadSelect() {
             content: ""; 
             background-image: url(${games[params.id-1].game_cover}); 
             background-repeat: no-repeat; 
-            background-size: cover;
+            background-size: 100%;
             background-attachment: fixed;
             opacity: 0.5; 
             top: 0;

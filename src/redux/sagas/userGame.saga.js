@@ -10,8 +10,8 @@ function* addUserGame(action) {
   try {
       yield axios.post('/api/usergame', action.payload);
       // yield put({ type: 'FETCH_USER_GAME'})
-      yield Swal.fire({
-        text: "Your selected game and time has been posted!",
+      yield Swal.fire('Your selected game and time has been posted!',
+      {
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'OK'
       }).then((result) => {

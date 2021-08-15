@@ -73,7 +73,7 @@ function TimeSelect() {
             content: ""; 
             background-image: url(${games[params.id-1].game_cover}); 
             background-repeat: no-repeat; 
-            background-size: cover; 
+            background-size: 100%; 
             opacity: 0.5; 
             top: 0;
             left: 0;
