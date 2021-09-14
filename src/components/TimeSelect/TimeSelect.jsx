@@ -61,11 +61,8 @@ function TimeSelect() {
                 history: history
             }
         });
-        
-        // history.push(`/squadselect/${params.id}`);
     }
     
-    // count.length === 0 ? 0 : Number(count[0].count)
     return (
     <div className="container">
         <style>{games.length === 0 ? "body {background-color: black;}" : //allows the user to reload the page
