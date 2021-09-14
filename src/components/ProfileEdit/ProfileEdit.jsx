@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './ProfileEdit.css';
-// import { useHistory, useParams } from 'react-router-dom';
 
 //Form Dialog imports:
 import Button from '@material-ui/core/Button';
@@ -9,8 +8,6 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-// import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 //Radio Button imports:
 import Radio from '@material-ui/core/Radio';
@@ -30,8 +27,6 @@ function ProfileEdit() {
   const [discordLink, setDiscordLink] = useState(user.discord_link);
 
   const dispatch = useDispatch();
-  // const history = useHistory();
-  // const params = useParams();
 
   const editProfile = (event) => {
     
@@ -45,7 +40,6 @@ function ProfileEdit() {
           profile_description: description,
           user_play_style: style,
           discord_link: discordLink,
-          // history: history
       },
     });
   }; // end editProfile
@@ -69,9 +63,6 @@ function ProfileEdit() {
     <form className="formPanel" onSubmit={editProfile}>
       <h3 id="form-dialog-title" >EDIT PROFILE</h3>
       <DialogContent>
-        {/* <DialogContentText>
-          EDIT PROFILE
-        </DialogContentText> */}
         <TextField
           autoFocus
           margin="dense"
@@ -137,76 +128,3 @@ function ProfileEdit() {
 }
 
 export default ProfileEdit;
-
-{/* <div>
-    <form className="formPanel" onSubmit={editProfile}>
-      <h2>Edit Profile</h2>
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="profilePic">
-          Profile Picture:
-          <input 
-            type="text"
-            name="profilePic" 
-            value={image}
-            onChange={(event) => setImage(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="description">
-          Profile Description:
-          <input
-            type="text"
-            name="description"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <p>Play Style: {style}</p>
-        <input 
-          type="radio"
-          id="Competitive" 
-          name="play_style"
-          value={style}
-          onClick={() => setStyle('competitive')}
-        />
-        <label htmlFor="Competitive">Competitive</label>
-        <input 
-          type="radio"
-          id="Casual" 
-          name="play_style"
-          value={style}
-          onClick={() => setStyle('casual')}
-        />
-        <label htmlFor="Casual">Casual</label>
-      </div>
-      <div>
-        <label htmlFor="discord">
-          Discord Link:
-          <input
-            type="text"
-            name="discord"
-            value={discordLink}
-            onChange={(event) => setDiscordLink(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="SAVE CHANGES" />
-      </div>
-    </form>
-    <button className="btn" onClick ={() => history.push(`/profile`)}>RETURN</button>
-</div> */}
