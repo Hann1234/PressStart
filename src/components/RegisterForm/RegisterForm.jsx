@@ -4,7 +4,6 @@ import './RegisterForm.css';
 
 //material.ui button imports:
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
   button: {
@@ -51,7 +50,7 @@ function RegisterForm() {
   return (
     <center>
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <h2 >Register User</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
