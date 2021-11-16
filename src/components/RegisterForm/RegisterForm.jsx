@@ -1,5 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './RegisterForm.css';
+
+//material.ui button imports:
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles({
+  button: {
+    // fontFamily: 'Press Start 2P',
+    background: 'linear-gradient(45deg, #910000 20%, #ff0000 90%)',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  },
+});
+
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -11,6 +30,7 @@ function RegisterForm() {
 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -29,6 +49,7 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
+    <center>
     <form className="formPanel" onSubmit={registerUser}>
       <h2>Register User</h2>
       {errors.registrationMessage && (
@@ -121,9 +142,10 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className={classes.button} type="submit" name="submit" value="Register" />
       </div>
     </form>
+    </center>
   );
 }
 
