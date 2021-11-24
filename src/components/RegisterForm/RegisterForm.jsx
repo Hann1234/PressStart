@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './RegisterForm.css';
 
 //material.ui button imports:
 import { makeStyles } from '@material-ui/core/styles';
