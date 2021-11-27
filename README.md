@@ -17,6 +17,11 @@ In order to run PressStart locally, set up a database named 'press_start' and in
 PressStart user interaction follows the structure below:
 
 1. User creates a user profile providing a profile name, password, profile picture, profile description, user play style, and a discord invite link to the user's discord lobby (this link is only shared between matched users).
+
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/profile.png)
+![Edit Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/editProfile.png)
+
+
 2. After logging in, the user is prompted to press the pulsing start button which will direct the user to select a game.
 
 ![Home Page](https://github.com/Hann1234/PressStart/blob/master/public/images/homePage.png)
