@@ -40,8 +40,18 @@ PressStart user interaction follows the structure below:
 5. The current user is then directed to a page where they can now send other users invites to connect to their squad.
 
 ![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/selectSquad.png)
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/alertInviteConfirmation.png)
 
 6. After invites are sent, the user can return to the home screen to edit their profile or manage their squad. The user will be alerted to pending squad invites from other users by a number badge on the 'squad' button on the home screen depending on the number of current pending invites.
+
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/manageSquad.png)
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/receivedInvite.png)
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/receivedInviteProfile.png)
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/acceptedInvite.png)
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/acceptedInviteDetails.png)
+
+
+
 7. When a user accepts an invite from another user, their discord invite links are now available to each other so they can connect virtually through the discord app and game together.
 
 ## Technologies Used:
