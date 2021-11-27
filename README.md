@@ -18,6 +18,9 @@ PressStart user interaction follows the structure below:
 
 1. User creates a user profile providing a profile name, password, profile picture, profile description, user play style, and a discord invite link to the user's discord lobby (this link is only shared between matched users).
 2. After logging in, the user is prompted to press the pulsing start button which will direct the user to select a game.
+
+![Home Page](https://github.com/Hann1234/PressStart/blob/master/public/images/homePage.png)
+
 3. The user can slide through the available games and click on the cover art of the one they wish to play.
 4. The user is then prompted to pick a desired date and time they wish to play the selected game.  After the game and time is selected, the user profile, game, and time is now posted for other users to see.
 5. The current user is then directed to a page where they can now send other users invites to connect to their squad.
