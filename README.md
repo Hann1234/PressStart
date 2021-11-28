@@ -8,6 +8,8 @@ A common problem for people who solo queue and get placed with random teammates 
 
 The goal of PressStart is to provide a space for solo gamers to find other dedicated gamers who want to team up and play squad based video games together. Through the PressStart app, gamers can create a profile, decide a game to play, set a desired play time, and get matched with other gamers looking to play the same games around the same time. Matched players are able to share discord invite links which allows them to meet up virtually in their discord lobbies (Discord is an instant messaging/voice communication application that is popular in the gaming community).
 
+![Home Page](https://github.com/Hann1234/PressStart/blob/master/public/images/homePage.png)
+
 ## Setup
 
 In order to run PressStart locally, set up a database named 'press_start' and input the SQL queries contained within the database.sql file.  PressStart can only be run locally at this time.
@@ -47,12 +49,11 @@ PressStart user interaction follows the structure below:
 ![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/manageSquad.png)
 ![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/receivedInvite.png)
 ![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/receivedInviteProfile.png)
-![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/acceptedInvite.png)
-![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/acceptedInviteDetails.png)
-
-
 
 7. When a user accepts an invite from another user, their discord invite links are now available to each other so they can connect virtually through the discord app and game together.
+
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/acceptedInvite.png)
+![User Profile](https://github.com/Hann1234/PressStart/blob/master/public/images/acceptedInviteDetails.png)
 
 ## Technologies Used:
 
